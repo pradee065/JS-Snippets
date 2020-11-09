@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+<script>
+// Sample example of XMLHttp Request Method Here
+        // var apiObject = new XMLHttpRequest();
+
+
+        // apiObject.addEventListener('load', function(data){
+        //     var data = JSON.parse(this.responseText);
+        //     console.log(data);
+        //     for(var property of data.data){
+        //         console.log(property.employee_name);
+        //     }
+        // });
+
+        // apiObject.addEventListener('error', function(){
+        //     console.log('Not Working!!');
+        // });
+
+        // apiObject.open('get', 'http://dummy.restapiexample.com/api/v1/employees');
+
+        // apiObject.send();
+
+        // console.log('API SENT NOW!!');
+
+// Using Fetch Method
+
+fetch('http://dummy.restapiexample.com/api/v1/employeess')
+.then( (response) => {
+    console.log(response);
+    if(!response.ok){
+       throw new Error('Not working!!!');
+    }
+    else {
+        response.json().then((data)=> {
+        for(var property of data.data){
+            console.log(property.id);
+        }
+    });
+    }
+    
+}).catch((error) => {
+    console.log('Error occured!!!');
+})
+
+
+
+
+</script>
+
+</body>
+</html>
